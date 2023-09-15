@@ -9,17 +9,10 @@
 *** https://www.markdownguide.org/basic-syntax/#reference-style-links
 -->
 
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
-
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/othneildrew/Best-README-Template">
+  <a href="https://github.com/OurRealRoad/web-ide">
     <img src="frontend/public/logo.png" alt="Logo" width="80" height="80">
   </a>
 
@@ -28,17 +21,17 @@
   <p align="center">
     WEB에서 동작하는 이슬같이 깔끔한 IDE
     <br />
-    <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/OurRealRoad/web-ide"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/othneildrew/Best-README-Template">View Demo</a>
+    <a href="https://github.com/OurRealRoad/web-ide">View Demo</a>
     ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Report Bug</a>
+    <a href="https://github.com/OurRealRoad/web-ide/issues">Report Bug</a>
     ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Request Feature</a>
+    <a href="https://github.com/OurRealRoad/web-ide/issues">Request Feature</a>
   </p>
 </div>
-
+<br/>
 <!-- TABLE OF CONTENTS -->
 <details>
   <summary>Table of Contents</summary>
@@ -58,7 +51,6 @@
     </li>
     <li><a href="#usage">Usage</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#acknowledgments">Acknowledgments</a></li>
@@ -69,25 +61,25 @@
 
 ## About The Project
 
-[![원래는 스크린 샷이나 구동하는 화면이 들어갈 자리][product-screenshot]](https://example.com)
-
-그동안 구름톤 풀스택 과정에서 학습한 내용을 토대로 WEB IDE 프로젝트를 만들어봤습니다. 위 프로젝트를 진행하는 이유를 보통 적는 칸
+구름톤 풀스택 과정에서 학습한 내용을 토대로 WEB IDE 프로젝트를 만들어봤습니다.
 
 만든 이유:
 
-- 그동안 배운 걸 잘 써먹기 위해서
-- 취업하기 위해서
-- 내 실력을 향상시키기 위해서
+-
+-
+-
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ### Built With
 
-- [![React][React.js]][React-url]
+- React
 - Spring Boot
 - Docker
 - Tailwind CSS
 - Emotion
+- Redis
+- MySQL
 - 추가 예정
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -96,38 +88,28 @@
 
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
-
 로컬 환경에서 설정할 수 있는 방법입니다.
 
 ### Prerequisites
 
 다음은 소프트웨어를 실행 시 필요한 항목을 설치하는 방법입니다.
 
-- Terminal
-
-  ```
-  docker-compose up --build
-  ```
+- <a href="https://docs.docker.com/engine/install/">Docker</a>
+- 추가 예정
 
 ### Installation
 
-_Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
+아래의 순서대로 프로젝트를 구성해주세요
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
+1. Clone the repo
    ```sh
-   git clone https://github.com/your_username_/Project-Name.git
+   git clone https://github.com/OurRealRoad/web-ide.git
    ```
-3. Install NPM packages
+2. docker-compose 명령어 실행
    ```sh
-   npm install
+   docker-compose up --build
    ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
-   ```
+3. 추가 예정
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -137,7 +119,7 @@ _Below is an example of how you can instruct your audience on installing and set
 
 프로젝트 사용 방법을 보여줄 단락입니다.
 
-_For more examples, please refer to the [Documentation](https://example.com)_
+_For more examples, please refer to the [Documentation](https://github.com/OurRealRoad/web-ide)_
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -145,32 +127,9 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 
 ## Roadmap
 
-- [x] Add Changelog
-- [x] Add back to top links
-- [ ] Add Additional Templates w/ Examples
-- [ ] Add "components" document to easily copy & paste sections of the readme
-- [ ] Multi-language Support
-  - [ ] Chinese
-  - [ ] Spanish
-
-See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a full list of proposed features (and known issues).
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- CONTRIBUTING -->
-
-## Contributing
-
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-
-If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
-Don't forget to give the project a star! Thanks again!
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+- [ ] 프로젝트 CI/CD 구성 완료
+- [ ] Add back to top links
+- 추가 예정
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -178,7 +137,7 @@ Don't forget to give the project a star! Thanks again!
 
 ## License
 
-Distributed under the MIT License. See `LICENSE.txt` for more information.
+작성 예정
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -186,9 +145,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 ## Contact
 
-Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.com
-
-Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
+issue를 통해서 메시지를 남겨주세요.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -196,16 +153,11 @@ Project Link: [https://github.com/your_username/repo_name](https://github.com/yo
 
 ## Acknowledgments
 
-Use this space to list resources you find helpful and would like to give credit to. I've included a few of my favorites to kick things off!
+구현에 사용된 기능들의 리소스와 도움이 될만한 자료들입니다.
 
-- [Choose an Open Source License](https://choosealicense.com)
-- [GitHub Emoji Cheat Sheet](https://www.webpagefx.com/tools/emoji-cheat-sheet)
-- [Malven's Flexbox Cheatsheet](https://flexbox.malven.co/)
-- [Malven's Grid Cheatsheet](https://grid.malven.co/)
-- [Img Shields](https://shields.io)
-- [GitHub Pages](https://pages.github.com)
-- [Font Awesome](https://fontawesome.com)
-- [React Icons](https://react-icons.github.io/react-icons/search)
+- [FE개발그룹에서는 Tailwind CSS를 왜 도입했고, 어떻게 사용했을까? - 카카오 FE 기술블로그](https://fe-developers.kakaoent.com/2022/221013-tailwind-and-design-system/)
+- [React-Router Official document ](https://reactrouter.com/en/main)
+- 추가 예정
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -240,4 +192,3 @@ Use this space to list resources you find helpful and would like to give credit 
 [Bootstrap.com]: https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
 [Bootstrap-url]: https://getbootstrap.com
 [JQuery.com]: https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white
-[JQuery-url]: https://jquery.com
