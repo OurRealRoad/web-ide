@@ -11,6 +11,8 @@ COPY settings.gradle .
 COPY src src
 
 # Give execution permission to Gradle wrapper and build the project
+RUN apt-get update && apt-get install dos2unix
+RUN dos2unix gradlew
 RUN chmod +x ./gradlew
 RUN ./gradlew bootJar
 
