@@ -38,7 +38,7 @@ function App() {
       <TailDiv />
       <div>Hello!</div>
       <p>{value}</p>
-      <p>hi</p>
+      <p>hi!!</p>
     </div>
   );
 }
