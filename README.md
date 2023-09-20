@@ -105,11 +105,17 @@
    ```sh
    git clone https://github.com/OurRealRoad/web-ide.git
    ```
-2. docker-compose 명령어 실행
+2. husky 실행 - 코드 관리와 커밋 메시지 관리를 할 때 사용하는 라이브러리
    ```sh
+   cd frontend
+   npm install
+   ```
+3. docker-compose 명령어 실행
+   ```sh
+   # 프로젝트 root 위치
    docker-compose up --build
    ```
-3. 추가 예정
+4. 추가 예정
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -127,9 +133,10 @@ _For more examples, please refer to the [Documentation](https://github.com/OurRe
 
 ## Roadmap
 
-- [ ] 프로젝트 CI/CD 구성 완료
-- [ ] Add back to top links
-- 추가 예정
+- [ ] WEB IDE의 기본적인 틀과 사용자 인터페이스(UI) 설계
+- [ ] 회원 가입 및 로그인 기능 구현
+- [ ] 코드 편집기 기능 구현
+- [ ] 채팅 기능 구현
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -153,10 +160,9 @@ issue를 통해서 메시지를 남겨주세요.
 
 ## Acknowledgments
 
-구현에 사용된 기능들의 리소스와 도움이 될만한 자료들입니다.
-
 - [FE개발그룹에서는 Tailwind CSS를 왜 도입했고, 어떻게 사용했을까? - 카카오 FE 기술블로그](https://fe-developers.kakaoent.com/2022/221013-tailwind-and-design-system/)
 - [React-Router Official document ](https://reactrouter.com/en/main)
+- [Conventional Commits](https://www.conventionalcommits.org/ko/v1.0.0/)
 - 추가 예정
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
