@@ -8,11 +8,17 @@ import IdePage from './pages/IdePage';
 
 import reportWebVitals from './reportWebVitals';
 import ErrorPage from './pages/ErrorPage';
+import LoginPage from './pages/LoginPage';
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <App />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: '/login',
+    element: <LoginPage />,
     errorElement: <ErrorPage />,
   },
   {
