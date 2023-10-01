@@ -10,7 +10,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -40,7 +40,7 @@ public class AuthController {
             String hashPwd = passwordEncoder.encode(member.getPassword());
             member.setPassword(hashPwd);
             member.setRole("USER");
-            member.setCreatedDate(String.valueOf(new Date(System.currentTimeMillis())));
+            member.setCreatedDate(String.valueOf(LocalDateTime.now()));
             registeredMember = memberRepository.save(member);
             System.out.println("2");
             if(registeredMember.getId() > 0 ){
