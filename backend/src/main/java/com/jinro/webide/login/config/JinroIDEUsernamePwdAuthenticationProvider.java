@@ -1,4 +1,4 @@
-package com.jinro.webide.config;
+package com.jinro.webide.login.config;
 
 import com.jinro.webide.login.domain.member.Authority;
 import com.jinro.webide.login.domain.member.Member;

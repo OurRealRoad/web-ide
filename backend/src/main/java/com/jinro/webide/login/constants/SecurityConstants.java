@@ -1,4 +1,4 @@
-package com.jinro.webide.constants;
+package com.jinro.webide.login.constants;
 
 public class SecurityConstants {
 

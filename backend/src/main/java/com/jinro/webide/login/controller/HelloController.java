@@ -1,4 +1,4 @@
-package com.jinro.webide.controller;
+package com.jinro.webide.login.controller;
 
 import org.apache.catalina.connector.Response;
 import org.springframework.http.HttpStatusCode;

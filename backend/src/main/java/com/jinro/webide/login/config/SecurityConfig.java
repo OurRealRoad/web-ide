@@ -1,8 +1,8 @@
-package com.jinro.webide.config;
+package com.jinro.webide.login.config;
 
-import com.jinro.webide.filter.CsrfCookieFilter;
-import com.jinro.webide.filter.JWTTokenGeneratorFilter;
-import com.jinro.webide.filter.JWTTokenValidatorFilter;
+import com.jinro.webide.login.filter.CsrfCookieFilter;
+import com.jinro.webide.login.filter.JWTTokenGeneratorFilter;
+import com.jinro.webide.login.filter.JWTTokenValidatorFilter;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

@@ -1,4 +1,4 @@
-package com.jinro.webide.filter;
+package com.jinro.webide.login.filter;
 
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
