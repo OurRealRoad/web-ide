@@ -3,11 +3,14 @@ package com.jinro.webide.login.web;
 import com.jinro.webide.login.domain.member.Member;
 import com.jinro.webide.login.domain.member.MemberRepository;
 import com.jinro.webide.login.web.dto.SignupResponseDto;
+import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.csrf.CsrfToken;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
@@ -25,6 +28,11 @@ public class AuthController {
     @GetMapping("/login")
     public String login(){
         return "login page";
+    }
+
+    @GetMapping("/api/v1/csrf")
+    public ResponseEntity<String> getCsrfToken(HttpServletRequest request, CsrfToken token){
+        return ResponseEntity.ok(token.getToken());
     }
 
     @GetMapping("/api/v1/signup")

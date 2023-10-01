@@ -1,14 +1,32 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 function LoginPage() {
+  const [csrfToken, setCsrfToken] = useState('');
+
+  useEffect(() => {
+    axios
+      .get('http://localhost:8080/api/v1/csrf')
+      .then((response) => {
+        // setCsrfToken(response.data.csrfToken);
+        // alert(csrfToken);
+        setCsrfToken(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+        alert('Failed to fetch CSRF token');
+      });
+  }, []);
+
   const login = () => {
     const response = axios.post(
-      'http://localhost:8080/user',
-      { username: 'jinro1@mail.com', password: '1234' },
+      'http://localhost:8080/login',
+      { username: 'jinro1@mail.com', password: '1234', _csrf: csrfToken },
       {
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
         withCredentials: true,
-        // Authorization : `Basic ${window.btoa('jinro1@mail.com:1234')}`
       },
     );
     response.then((result) => {
@@ -17,9 +35,8 @@ function LoginPage() {
           'Authorization',
           result.headers.get('Authorization'),
         );
-        alert('로그인 완료');
-        window.location.href = 'http://localhost:8080/';
-        // alert(window.sessionStorage.getItem("Authorization"));
+        console.log(result);
+        window.location.href = 'http://localhost:8080/?continue';
       } else {
         alert('로그인에 실패했습니다.');
       }
