@@ -17,6 +17,7 @@ import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
 import org.springframework.security.web.csrf.CsrfTokenRepository;
 import org.springframework.security.web.csrf.CsrfTokenRequestAttributeHandler;
 import org.springframework.security.web.csrf.HttpSessionCsrfTokenRepository;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 
@@ -33,9 +34,6 @@ public class SecurityConfig {
     SecurityFilterChain defaultSecurityFilterChain(HttpSecurity http) throws Exception {
         CsrfTokenRequestAttributeHandler requestHandler = new CsrfTokenRequestAttributeHandler();
         requestHandler.setCsrfRequestAttributeName("_csrf");
-
-        http.securityContext(context ->
-                context.requireExplicitSave(false));
         http.sessionManagement(session ->
                 session.sessionCreationPolicy(SessionCreationPolicy.ALWAYS));
         http.cors(cors -> cors.configurationSource(new CorsConfigurationSource() {
@@ -46,19 +44,22 @@ public class SecurityConfig {
                 config.setAllowedMethods(Collections.singletonList("*"));
                 config.setAllowCredentials(true);
                 config.setAllowedHeaders(Collections.singletonList("*"));
-//                config.setExposedHeaders(Arrays.asList("Authorization"));
+                config.setExposedHeaders(Arrays.asList("Authorization"));
                 config.setMaxAge(3600L);
                 return config;
             }
         }));
         // not for GET request
-        http.csrf(csrf -> csrf.csrfTokenRequestHandler(requestHandler).ignoringRequestMatchers("/api/v1/signup", "/login")
+        http.csrf(csrf -> csrf.csrfTokenRequestHandler(requestHandler).ignoringRequestMatchers(
+                new AntPathRequestMatcher("/api/v1/signup"),
+                new AntPathRequestMatcher("/login"),
+                new AntPathRequestMatcher("/api/v1/csrf")
+                )
                 .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse()));
         http.csrf(csrf -> csrf.csrfTokenRepository(csrfTokenRepository()));
-        http.csrf(csrf -> csrf.ignoringRequestMatchers("/api/v1/signup", "/login", "/api/v1/csrf"));
         http.addFilterAfter(new CsrfCookieFilter(), BasicAuthenticationFilter.class)
         .addFilterAfter(new JWTTokenGeneratorFilter(), BasicAuthenticationFilter.class)
-        .addFilterAfter(new JWTTokenValidatorFilter(), BasicAuthenticationFilter.class);
+        .addFilterBefore(new JWTTokenValidatorFilter(), BasicAuthenticationFilter.class);
         http.authorizeHttpRequests(requests -> requests
                 .requestMatchers("/admin").hasAuthority("ADMIN")
                 .requestMatchers("/", "api/v1/user").authenticated()

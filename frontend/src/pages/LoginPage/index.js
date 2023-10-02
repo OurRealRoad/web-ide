@@ -3,13 +3,15 @@ import axios from 'axios';
 
 function LoginPage() {
   const [csrfToken, setCsrfToken] = useState('');
+  // const [username, setUsername] = useState("jinro1@mail.com");
+  const username = 'jinro2@mail.com';
+  // const [password, setPassword] = useState("1234");
+  const password = '1234';
 
   useEffect(() => {
     axios
       .get('http://localhost:8080/api/v1/csrf')
       .then((response) => {
-        // setCsrfToken(response.data.csrfToken);
-        // alert(csrfToken);
         setCsrfToken(response.data);
       })
       .catch((error) => {
@@ -19,22 +21,28 @@ function LoginPage() {
   }, []);
 
   const login = () => {
+    // const credentails = window.btoa(`${username}:${password}`);
+    // const authentication = `Basic ${credentails}`;
     const response = axios.post(
       'http://localhost:8080/login',
-      { username: 'jinro1@mail.com', password: '1234', _csrf: csrfToken },
+      { username, password, _csrf: csrfToken },
       {
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded',
+          // 'AUTHORIZATION': authentication
         },
         withCredentials: true,
       },
     );
     response.then((result) => {
       if (result.data) {
-        window.sessionStorage.setItem(
-          'Authorization',
-          result.headers.get('Authorization'),
-        );
+        console.log('response 출력');
+        // window.sessionStorage.setItem(
+        //   'Authorization',
+        //   result.headers.get('Authorization'),
+        // );
+        const xsrfToken = result.config.headers['X-XSRF-TOKEN'];
+        window.sessionStorage.setItem('XSRF-TOKEN', xsrfToken);
         console.log(result);
         window.location.href = 'http://localhost:8080/?continue';
       } else {

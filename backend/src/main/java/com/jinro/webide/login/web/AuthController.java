@@ -50,24 +50,25 @@ public class AuthController {
             member.setRole("USER");
             member.setCreatedDate(String.valueOf(LocalDateTime.now()));
             registeredMember = memberRepository.save(member);
-            System.out.println("2");
             if(registeredMember.getId() > 0 ){
-                System.out.println("3");
                 signupResponseDto.setStatus(HttpStatus.OK);
                 signupResponseDto.setResult(true);
                 signupResponseDto.setMessage("Successfully Signed Up");
                 return signupResponseDto;
             }
-            System.out.println("4");
             throw new RuntimeException();
         } catch (Exception e) {
-            System.out.println("5");
             signupResponseDto = new SignupResponseDto();
             signupResponseDto.setStatus(HttpStatus.INTERNAL_SERVER_ERROR);
             signupResponseDto.setResult(false);
             signupResponseDto.setMessage("An exception occured due to " + e.getMessage());
             return signupResponseDto;
         }
+    }
+
+    @GetMapping("/admin")
+    public String admin(){
+        return "admin page";
     }
 
     @RequestMapping("/api/v1/user")
